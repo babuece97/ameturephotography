@@ -7,13 +7,15 @@ import Services from './components/Services/Services';
 import Login from './components/Login/Login';
 import Blog from './components/Blog/Blog';
 import About from './components/About/About';
-import Registration from './components/Registration/Registration'
+import Registration from './components/Registration/Registration';
+import Banner from './components/Banner/Banner';
 
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
+      <Banner></Banner>
       <Routes>
           <Route path="/" element={<Home></Home>}/>
           <Route path="home" element={<Home></Home>} />

@@ -1,0 +1,13 @@
+.banner {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgOGp41ukuANpqCbzKvXBVcyvvHA-JCTaxVw&usqp=CAU");
+    height: 810px; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .title {
+    color: rgb(40, 27, 228);
+    font-weight: bold;
+    font-size: 59px;
+  }
