@@ -9,6 +9,7 @@ import Blog from './components/Blog/Blog';
 import About from './components/About/About';
 import Registration from './components/Registration/Registration';
 import Banner from './components/Banner/Banner';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <div>
       <Navbar></Navbar>
       <Banner></Banner>
+      <Footer></Footer>
       <Routes>
           <Route path="/" element={<Home></Home>}/>
           <Route path="home" element={<Home></Home>} />
