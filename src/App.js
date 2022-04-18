@@ -6,6 +6,8 @@ import Home from './components/Home/Home';
 import Services from './components/Services/Services';
 import Login from './components/Login/Login';
 import Blog from './components/Blog/Blog';
+import About from './components/About/About';
+import Registration from './components/Registration/Registration'
 
 
 function App() {
@@ -13,15 +15,13 @@ function App() {
     <div>
       <Navbar></Navbar>
       <Routes>
-          <Route path="/" element={<Home></Home>}>
-          </Route>
+          <Route path="/" element={<Home></Home>}/>
           <Route path="home" element={<Home></Home>} />
-          <Route path="services" element={<Services></Services>}>
-          <Route path=":blog" element={<Blog> </Blog>} />
-          <Route path="about me" element={<p> About mee</p>} />
-          <Route path="registration" element={<p> Registration </p> } />
+          <Route path="services" element={<Services></Services>}/>
+          <Route path="blog" element={<Blog> </Blog>}/>
+          <Route path="about me" element={<About></About>} />
+          <Route path="registration" element={<Registration> </Registration> } />
           <Route path="login" element={<Login></Login>} />
-          </Route>
         </Routes>
     </div>
   );
