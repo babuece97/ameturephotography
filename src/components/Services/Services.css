@@ -1,0 +1,10 @@
+.services {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgb(109, 107, 107);
+    grid-column-gap:20px;
+    grid-row-gap:20px;
+    border :3px solid rgb(5, 5, 6);
+    padding: 15px;
+    border-radius: 10px;
+}
