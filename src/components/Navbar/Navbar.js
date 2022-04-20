@@ -1,7 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import {onAuthStateChanged} from "firebase/auth";
+import {auth} from "../../Firebase/Firebase.init";
 
 const Navbar = () => {
+  const [user, setUser]=useState({});
+  useEffect(()=> {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        
+        const uid = user.uid;
+        // ...
+      } else {
+        // User is signed out
+        setUser({});
+        
+      }
+    });
+
+  }, [])
+  
+
+  
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container">
@@ -25,6 +46,7 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/login">Login</Link>
+         
         </li>
       </ul>
       
