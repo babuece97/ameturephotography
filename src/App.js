@@ -10,13 +10,13 @@ import About from './components/About/About';
 import Registration from './components/Registration/Registration';
 import Banner from './components/Banner/Banner';
 import Footer from './components/Footer/Footer';
+import NotFound from './components/NotFound/NotFound';
 
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Banner></Banner>
       
       <Routes>
           <Route path="/" element={<Home></Home>}/>
@@ -26,6 +26,7 @@ function App() {
           <Route path="aboutMe" element={<About></About>} />
           <Route path="registration" element={<Registration> </Registration> } />
           <Route path="login" element={<Login></Login>} />
+          <Route path="*" element={<NotFound></NotFound>} />
         </Routes>
         <Footer></Footer>
     </div>

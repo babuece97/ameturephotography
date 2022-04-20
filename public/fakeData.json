@@ -2,36 +2,30 @@
     {
         "id": 234,
         "name": "Wedding Photography",
-        "Description": "Age for 0-6months",
+        "Description": "Body termaric, bride festival",
         "price": 3000,
-        "level": "beginner",
-        "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.gDf20zQsZRhS_hmt-s0EHQHaFO%26pid%3DApi&f=1"
+        "img": "https://i.pinimg.com/originals/69/d5/5a/69d55ad508f73b45a0ec0a6b0b585259.jpg"
     },
     {
         "id": 237,
-        "name": "Swim early",
-        "Description": "Age for 7-15months",
+        "name": "Corporate Events",
+        "Description": "AGM, Team building, Yearly concert , Conference etc",
         "price": 3500,
-        "level": "beginner",
-        "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.5Mr-0eMyNKXUD-nPmle8fAHaFj%26pid%3DApi&f=1"
+        "img": "https://decorumevents.in/wp-content/uploads/2017/12/riverwind-meet-corporate-events-main.jpg"
     },
     {
         "id": 235,
-        "name": "Swim Sweet",
-        "Description": "Age for 2-4 yrs",
-        "gender": "both",
+        "name": "Modelling",
+        "Description": "Model competation ",
         "price": 5000,
-        "level": "beginner",
-        "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.h621n28Y0-Nvp2PAWNkOPwHaE7%26pid%3DApi&f=1"
+        "img": "https://dvyvvujm9h0uq.cloudfront.net/com/articles/1571040463-892843-model-2jpg.jpg"
     },
     {
         "id": 204,
-        "name": "Swim fun",
-        "Description": "Age for 5-7 yrs",
-        "gender": "both",
+        "name": "Family events",
+        "Description": "Birthday, marriage day celebration",
         "price": 5500,
-        "level": "beginner",
-        "img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.bqvgn2wGPRQJ18pggME-MAHaE7%26pid%3DApi&f=1"
+        "img": "https://www.wonderwall.com/wp-content/uploads/sites/2/2017/03/1001226-singer-ariana-grande-celebrates-21st-birthday-at-walt-di.jpg?h=800"
     },
     {
         "id": 634,
