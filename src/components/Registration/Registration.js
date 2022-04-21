@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {auth}  from '../../Firebase/Firebase.init';
-import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword, } from "firebase/auth";
 const provider = new GoogleAuthProvider();
 
 const Signup = () => {
@@ -23,13 +23,32 @@ const googleAuth =()=>{
   });
 
 };
+ const handleRegistration=(event)=>{
+   event.preventDefault();
+   const email=event.target.email.value;
+   const password=event.target.password.value;
 
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      // ..
+    });
+ }
 
   return (
     <div className='auth-form-container '>
       <div className='auth-form'>
         <h1>Sign up/Registration</h1>
-        <form>
+        <form onSubmit={handleRegistration}>
           <div className='input-field'>
             <label htmlFor='email'>Email</label>
             <div className='input-wrapper'>

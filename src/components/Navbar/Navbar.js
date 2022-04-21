@@ -5,8 +5,7 @@ import {auth} from "../../Firebase/Firebase.init";
 
 const Navbar = () => {
   const [user, setUser]=useState({});
-  console.log(user);
-
+  
   useEffect(()=> {
     onAuthStateChanged(auth, (user) => {
       if (user) {
