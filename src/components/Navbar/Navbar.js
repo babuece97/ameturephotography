@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import {onAuthStateChanged} from "firebase/auth";
+import {onAuthStateChanged, signOut} from "firebase/auth";
 import {auth} from "../../Firebase/Firebase.init";
 
 const Navbar = () => {
   const [user, setUser]=useState({});
+  console.log(user);
+
   useEffect(()=> {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -19,9 +21,17 @@ const Navbar = () => {
       }
     });
 
-  }, [])
+  }, []);
   
-
+  const handleLogOut=()=>{
+    signOut(auth)
+      .then(() => {
+      
+    })
+    .catch((error) => {
+      
+    });
+  }
   
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,10 +54,11 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link" to="/registration">Registration</Link>
         </li>
-        <li className="nav-item">
+
+        {user?.uid? <button onClick={handleLogOut}>Log out </button> : <li className="nav-item">
           <Link className="nav-link" to="/login">Login</Link>
-         
-        </li>
+          
+        </li>}
       </ul>
       
     </div>
