@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase.init";
 import toast from "react-hot-toast";
-
+import "./Registration.css";
 
 const provider = new GoogleAuthProvider();
 
