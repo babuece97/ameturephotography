@@ -11,12 +11,14 @@ import Registration from './components/Registration/Registration';
 import Banner from './components/Banner/Banner';
 import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
+import {Toaster} from "react-hot-toast";
 
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
+      <Toaster></Toaster>
       
       <Routes>
           <Route path="/" element={<Home></Home>}/>

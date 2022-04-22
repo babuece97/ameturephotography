@@ -1,75 +1,156 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {auth}  from '../../Firebase/Firebase.init';
-import { GoogleAuthProvider,signInWithPopup,createUserWithEmailAndPassword, } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth } from "../../Firebase/Firebase.init";
+import toast from "react-hot-toast";
+
+
 const provider = new GoogleAuthProvider();
 
 const Signup = () => {
-const navigate = useNavigate();
-
-const googleAuth =()=>{
-    signInWithPopup(auth, provider)
-  .then((result) => {
-    // The signed-in user info.
-    const user = result.user;
-    navigate("/"); 
-    
-  })
-  
-  .catch((error) => {  
-    const errorMessage = error.message;
-    console.log(errorMessage);
-    
+  const [email, setEmail] = useState({ value: "", error: "" });
+  const [password, setPassword] = useState({ value: "", error: "" });
+  const [passwordConfirmation, setPasswordConfirmation] = useState({
+    value: "",
+    error: "",
   });
 
-};
- const handleRegistration=(event)=>{
-   event.preventDefault();
-   const email=event.target.email.value;
-   const password=event.target.password.value;
+  const navigate = useNavigate();
 
+  const googleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        // ...
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.error(error);
+      });
+  };
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      // ..
-    });
- }
+  const handleEmail = (event) => {
+    const emailInput = event.target.value;
+    if (/\S+@\S+\.\S+/.test(emailInput)) {
+      setEmail({ value: emailInput, error: "" });
+    } else {
+      setEmail({ value: "", error: "Please Provide a valid Email" });
+    }
+  };
+  const handlePassword = (event) => {
+    const passwordInput = event.target.value;
+
+    if (passwordInput.length < 7) {
+      setPassword({ value: "", error: "Password too short" });
+    } else if (!/(?=.*[A-Z])/.test(passwordInput)) {
+      setPassword({
+        value: "",
+        error: "Password must contain a capital letter",
+      });
+    } else {
+      setPassword({ value: passwordInput, error: "" });
+    }
+  };
+  const handleConfirmPassword = (event) => {
+    const confirmationInput = event.target.value;
+
+    if (confirmationInput !== password.value) {
+      setPasswordConfirmation({ value: "", error: "Password Mismatched" });
+    } else {
+      setPasswordConfirmation({ value: confirmationInput, error: "" });
+    }
+  };
+
+  const handleSignup = (event) => {
+    event.preventDefault();
+    if (email.value === "") {
+      setEmail({ value: "", error: "Email is required" });
+    }
+    if (password.value === "") {
+      setPassword({ value: "", error: "Password is required" });
+    }
+    if (passwordConfirmation.value === "") {
+      setPasswordConfirmation({
+        value: "",
+        error: "Password confirmation is required",
+      });
+    }
+    if (email.value && password.value === passwordConfirmation.value) {
+      createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          toast.success("CONGRTS!!!Your account is created", { id: "created" });
+          navigate("/");
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          if (errorMessage.includes("already-in-use")) {
+            toast.error("SORRY!!!!Email is  already in use", { id: "error" });
+          } else {
+            toast.error(errorMessage, { id: "error" });
+          }
+        });
+    }
+  };
 
   return (
     <div className='auth-form-container '>
       <div className='auth-form'>
-        <h1>Sign up/Registration</h1>
-        <form onSubmit={handleRegistration}>
+        <h1>Signup/Registration</h1>
+        <form onSubmit={handleSignup}>
           <div className='input-field'>
             <label htmlFor='email'>Email</label>
             <div className='input-wrapper'>
-              <input type='email' name='email' id='email' />
+              <input
+                onBlur={handleEmail}
+                type='email'
+                name='email'
+                id='email'
+              />
             </div>
+            {email.error && (
+              <p className='error'>
+                 {email.error}
+              </p>
+            )}
           </div>
           <div className='input-field'>
             <label htmlFor='password'>Password</label>
             <div className='input-wrapper'>
-              <input type='password' name='password' id='password' />
+              <input
+                onBlur={handlePassword}
+                type='password'
+                name='password'
+                id='password'
+              />
             </div>
+            {password.error && (
+              <p className='error'>
+                 {password.error}
+              </p>
+            )}
           </div>
           <div className='input-field'>
             <label htmlFor='confirm-password'>Confirm Password</label>
             <div className='input-wrapper'>
               <input
+                onBlur={handleConfirmPassword}
                 type='password'
                 name='confirmPassword'
                 id='confirm-password'
               />
             </div>
+            {passwordConfirmation.error && (
+              <p className='error'>
+                 {passwordConfirmation.error}
+              </p>
+            )}
           </div>
           <button type='submit' className='auth-form-submit'>
             Sign Up
