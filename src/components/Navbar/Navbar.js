@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {onAuthStateChanged, signOut} from "firebase/auth";
 import {auth} from "../../Firebase/Firebase.init";
 
+
 const Navbar = () => {
   const [user, setUser]=useState({});
   

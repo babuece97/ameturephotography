@@ -1,6 +1,5 @@
 .banner {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgOGp41ukuANpqCbzKvXBVcyvvHA-JCTaxVw&usqp=CAU");
-    height: 810px; 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -11,3 +10,18 @@
     font-weight: bold;
     font-size: 59px;
   }
+
+  /* For RESPONSIVE--small device */
+/* For RESPONSIVE--small device-single colum */
+@media only screen and (max-width:576px){
+  .banner {grid-template-columns: repeat(1,1fr);
+
+}
+}
+
+/* For RESPONSIVE--small device-Diuble colum */
+@media only screen and (min-width:577px)and ( max-width:992px){
+  .banner {grid-template-columns: repeat(2,1fr);
+
+}
+}

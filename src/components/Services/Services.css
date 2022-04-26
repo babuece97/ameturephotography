@@ -12,3 +12,17 @@ h2{
     text-align: center;
     padding:20px;
 }
+
+/* For RESPONSIVE--small device-single colum */
+@media only screen and (max-width:576px){
+    .services {grid-template-columns: repeat(1,1fr);
+
+}
+}
+
+/* For RESPONSIVE--small device-Diuble colum */
+@media only screen and (min-width:577px)and ( max-width:992px){
+    .services {grid-template-columns: repeat(2,1fr);
+
+}
+}

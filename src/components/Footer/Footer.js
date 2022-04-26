@@ -18,7 +18,7 @@ const Footer = () => {
                 <div className="slogan">
                     <p>Dhakingaon, Bashaboo, Dhaka</p>
                     <p>Phone: +88019432987</p>
-                    <p>E-mail: info@dhakaswim.com</p>
+                    <p>E-mail: info@ameturephoto.com</p>
                 </div>
             </div>
         </footer>
