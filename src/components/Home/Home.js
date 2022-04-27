@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
+import SocialMedia from '../SocialMedia/SocialMedia';
 import Service from '../Service/Service';
 import  { useEffect, useState } from 'react';
 import './Home.css';
@@ -25,6 +26,7 @@ const Home = () => {
                 ></Service>)
             }
             </div>
+            <SocialMedia></SocialMedia>
         </div>
     );
 };
