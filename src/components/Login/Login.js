@@ -2,7 +2,7 @@ import React from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import {auth}  from '../../Firebase/Firebase.init';
-import { signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword,GoogleAuthProvider,sendPasswordResetEmail,signInWithPopup } from "firebase/auth";
 import  { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -43,6 +43,13 @@ const Login = () => {
 
     setPassword({ value: passwordInput, error: "" });
   };
+
+  const handlePasswordReset = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log('email sent')
+      })
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -106,13 +113,15 @@ const Login = () => {
               </p>
             )}
           </div>
+          
+          <button onClick={handlePasswordReset} variant="link">Forget Password?</button>
           <button type='submit' className='auth-form-submit'>
             Login
           </button>
         </form>
         <p className='redirect'>
           No account here?{" "}
-          <span onClick={() => navigate("/signup")}>Create New Account</span>
+          <span onClick={() => navigate("/registration")}>Registration</span>
         </p>
         <div className='horizontal-divider'>
           <div className='line-left' />

@@ -3,9 +3,11 @@ import './SocialMedia.css';
 
 const SocialMedia = () => {
   return (
+  <>
+    <h1 className="mission-header"> My Followers </h1>
     <div>
          <section className="statusBar">
-        <h1 className="mission-header"> My Followers </h1>
+        
 
         <div className="statusMain">
             <div className="status1">
@@ -30,7 +32,9 @@ const SocialMedia = () => {
 
     
     </div>
+    </>
   );
-};
+}; 
+
 
 export default SocialMedia;

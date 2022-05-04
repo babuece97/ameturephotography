@@ -16,9 +16,10 @@ const Home = () => {
     return (
         <div >
             <Banner></Banner>
-            <h2>My Exclusive services</h2> 
+            <h1>My Exclusive services</h1> 
             
             <div className="services">
+                
             {
                 services.slice(0,3).map(service => <Service
                     key={service.id}

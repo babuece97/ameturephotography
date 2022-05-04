@@ -18,6 +18,7 @@ import RequireAuth from '../src/components/RequireAuth/RequireAuth';
 
 function App() {
   return (
+    
     <div>
       <Navbar></Navbar>
       <Toaster></Toaster>
@@ -32,14 +33,7 @@ function App() {
           <Route path="login" element={<Login></Login>} />
           <Route path="checkOut" element={
             <RequireAuth>  <CheckOut></CheckOut>
-            </RequireAuth>
-              
-            
-           
-    
-            
-            
-         
+            </RequireAuth>     
         }></Route>
           <Route path="*" element={<NotFound></NotFound>} />
         </Routes>

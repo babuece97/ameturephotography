@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
+  createUserWithEmailAndPassword,GoogleAuthProvider,signInWithPopup, getAuth, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile
 } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase.init";
 import toast from "react-hot-toast";
@@ -85,8 +83,9 @@ const Signup = () => {
       createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          toast.success("CONGRTS!!!Your account is created", { id: "created" });
+          toast.success("CONGRTS !!!Your account is created", { id: "created" });
           navigate("/");
+          verifyEmail(); // For Email varification
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -98,6 +97,14 @@ const Signup = () => {
         });
     }
   };
+
+  // For Email varification
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+        console.log('Email Verification Sent now');
+      })
+  }
 
   return (
     <div className='auth-form-container '>

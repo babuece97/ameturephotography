@@ -50,9 +50,9 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className="nav-link" to="/aboutMe">About me</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link className="nav-link" to="/registration">Registration</Link>
-        </li>
+        </li> */}
 
         {user?.uid? <button onClick={handleLogOut}>Log out </button> : <li className="nav-item">
           <Link className="nav-link" to="/login">Login</Link>
