@@ -1,4 +1,4 @@
-#Ameture Photographer 
+# Ameture Photographer 
 
 
 ## About this project:
