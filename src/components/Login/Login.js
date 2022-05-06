@@ -43,11 +43,11 @@ const Login = () => {
 
     setPassword({ value: passwordInput, error: "" });
   };
-
+    // Password reset
   const handlePasswordReset = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        console.log('email sent')
+        console.log('email sent for reset pwd')
       })
   }
 

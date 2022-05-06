@@ -5,11 +5,13 @@ import './Services.css'
 
 const Services = () => {
     const [services, setServices] = useState([])
+    
     useEffect(() => {
-        fetch('/fakedata.json')
+        fetch('../../../public/fakeData.json')
             .then(res => res.json())
-            // .then(data => console.log(data));
             .then(data => setServices(data))
+            console.log( 'Im here', services);
+            
     }, [])
     return (
         <div >

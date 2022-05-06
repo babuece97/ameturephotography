@@ -83,9 +83,9 @@ const Signup = () => {
       createUserWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
           const user = userCredential.user;
+          verifyEmail(true); // For Email varification
           toast.success("CONGRTS !!!Your account is created", { id: "created" });
           navigate("/");
-          verifyEmail(); // For Email varification
         })
         .catch((error) => {
           const errorMessage = error.message;
