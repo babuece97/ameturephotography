@@ -13,5 +13,5 @@ This  site is designed  for potential customers those who would like to take ser
 - react-router-dom for routing
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open https://ameturephotography-8351b.web.app to view it in your browser.
 
