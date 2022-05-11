@@ -8,7 +8,7 @@ import './Home.css';
 const Home = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('/fakedata.json')
+        fetch('fakeData.json')
             .then(res => res.json())
             // .then(data => console.log(data));
             .then(data => setServices(data))
@@ -18,7 +18,7 @@ const Home = () => {
             <Banner></Banner>
             <h1>My Exclusive services</h1> 
             
-            <div className="services">
+            <div className="services-container-style">
                 
             {
                 services.slice(0,3).map(service => <Service
